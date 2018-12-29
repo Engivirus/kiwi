@@ -16,13 +16,17 @@ function fetch_food()
 		{
 			var json = JSON.parse(this.responseText);
 			callback(null, json);
+			return json;
 		}
 	}
 
 	function onFail(event)
+	{
 		callback(new Error("Error occurred."));
+	}
 }
 
 
 
 food_dict = fetch_food();
+alert(food_dict);
