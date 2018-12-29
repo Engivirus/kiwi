@@ -64,7 +64,7 @@ textarea, #labels
 {
 	margin: auto;
 	display: grid;
-	grid-template-columns: 1fr 6fr;
+	grid-template-columns: 100px 1fr;
 
 	font-family: inconsolata;
 	font-size: 1.2rem;
