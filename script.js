@@ -84,7 +84,7 @@ function create_label_array(entries)
 
 function parse_amount(somestring)
 {
-	if(somestring.includes("kg") {
+	if(somestring.includes("kg")) {
 	   return 1000 * parseInt(somestring.replace("kg",""));}
 	else {
 		return parseInt(somestring.replace("g","")); }
