@@ -82,12 +82,12 @@ function create_label_array(entries)
 	return calories_array;
 }
 
-function parse_amount(string)
+function parse_amount(somestring)
 {
-	if(string.contains("kg")
-	   return 1000 * parseInt(string.replace("kg","");
-	else
-		return parseInt(string.replace("g","");
+	if(somestring.includes("kg") {
+	   return 1000 * parseInt(somestring.replace("kg",""));}
+	else {
+		return parseInt(somestring.replace("g","")); }
 }
 
 dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
