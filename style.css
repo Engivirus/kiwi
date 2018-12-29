@@ -27,6 +27,8 @@ textarea
 
 textarea, #labels
 {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 	background-image: url("textbg.png");
 	image-rendering: pixelated;
 	background-size: 100% 3rem;
