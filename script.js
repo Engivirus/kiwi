@@ -17,21 +17,24 @@ function fetch_json(url)
 		.catch(error => console.error(error))
 }
 
+// returns an array of tuples [name,grams]
 function get_text_entries(item)
 {
-	var entry_dict = {};
+	var entries = [];
 
 	var lines = item.value.split('\n');
 	for(var i=0; i<lines.length; i++)
 	{
 		var pair = lines[i].split(' ');
-		var amount = pair[0].replace('g','');
+		var amount = parse_amount(pair[0]);
 		var name = pair[1];
+		
+		var new_pair = [name, amount];
 
-		entry_dict[name] = parseInt(amount);
+		entries.push(new_pair);
 	}
 
-	return entry_dict;
+	return entries;
 }
 
 function set_labels(array)
@@ -58,15 +61,16 @@ function set_labels(array)
 	}
 }
 
-function create_label_array(dict)
+function create_label_array(entries)
 {
 	var calories_array = [];
 	
-	for(var key in dict)
+	for(var i=0; i<entries.length; i++)
 	{
-		if(foodlist.hasOwnProperty(key))
+		var foodname = entries[i][0];
+		if(foodlist.hasOwnProperty(foodname))
 		{
-			var amount = foodlist[key] / 100 * dict[key];
+			var amount = foodlist[foodname] / 100 * entries[1];
 			calories_array.push(amount);
 		}
 		else
@@ -76,6 +80,14 @@ function create_label_array(dict)
 	}
 
 	return calories_array;
+}
+
+function parse_amount(string)
+{
+	if(string.contains("kg")
+	   return 1000 * parseInt(string.replace("kg","");
+	else
+		return parseInt(string.replace("g","");
 }
 
 dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
@@ -88,8 +100,8 @@ set_labels([]);
 
 
 textarea.addEventListener("keyup", function() {
-	var dict = get_text_entries(textarea);
-	var array = create_label_array(dict);
+	var entries = get_text_entries(textarea);
+	var array = create_label_array(entries);
 	set_labels(array);
 });
 
