@@ -62,7 +62,7 @@ function set_labels(array)
 		var new_div = document.createElement("div");
 		var new_content = document.createTextNode(array[i]);
 		
-		if(array[i] >= 0])
+		if(array[i] >= 0)
 		{
 		new_div.appendChild(new_content);
 		}
