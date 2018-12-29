@@ -70,7 +70,7 @@ function create_label_array(entries)
 		var foodname = entries[i][0];
 		if(foodlist.hasOwnProperty(foodname))
 		{
-			var amount = foodlist[foodname] / 100 * entries[1];
+			var amount = foodlist[foodname] / 100 * entries[i][1];
 			calories_array.push(amount);
 		}
 		else
