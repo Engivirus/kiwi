@@ -25,6 +25,8 @@ function get_text_entries(item)
 	var lines = item.value.split('\n');
 	for(var i=0; i<lines.length; i++)
 	{
+		if(lines[i].includes(" "))
+		{
 		var pair = lines[i].split(' ');
 		var amount = parse_amount(pair[0]);
 		var name = pair[1];
@@ -32,6 +34,11 @@ function get_text_entries(item)
 		var new_pair = [name, amount];
 
 		entries.push(new_pair);
+		}
+		else
+		{
+		entries.push(["",0]);
+		}
 	}
 
 	return entries;
@@ -51,10 +58,14 @@ function set_labels(array)
 	for(var i=0; i<array.length; i++)
 	{
 		// console.log(array[i]);
-
+		
 		var new_div = document.createElement("div");
 		var new_content = document.createTextNode(array[i]);
+		
+		if(array[i] >= 0])
+		{
 		new_div.appendChild(new_content);
+		}
 		// console.log(new_div);
 
 		labels_div.appendChild(new_div);
@@ -68,7 +79,9 @@ function create_label_array(entries)
 	for(var i=0; i<entries.length; i++)
 	{
 		var foodname = entries[i][0];
-		if(foodlist.hasOwnProperty(foodname))
+		if(foodname == "")
+			calories_array.push(-1);
+		else if(foodlist.hasOwnProperty(foodname))
 		{
 			var amount = foodlist[foodname] / 100 * entries[i][1];
 			calories_array.push(amount);
