@@ -47,7 +47,7 @@ function set_labels(array)
 	var html_content = "";
 	for(var i=0; i<array.length; i++)
 	{
-		console.log(array[i]);
+		// console.log(array[i]);
 
 		var new_div = document.createElement("div");
 		var new_content = document.createTextNode(array[i]);
@@ -66,7 +66,8 @@ function create_label_array(dict)
 	{
 		if(foodlist.hasOwnProperty(key))
 		{
-			calories_array.push(foodlist[key].value);
+			var amount = foodlist[key] / 100 * dict[key];
+			calories_array.push(amount);
 		}
 		else
 		{
