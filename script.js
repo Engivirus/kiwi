@@ -2,7 +2,7 @@
 
 function fetch_food()
 {
-	var url = "https://engivirus.github.io/wiki/food.json"
+	var url = "https://engivirus.github.io/kiwi/food.json"
 
 	var request = new XMLHttpRequest();
 	request.open('GET', url);
