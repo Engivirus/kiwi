@@ -165,10 +165,17 @@ function update()
 	console.log("Values updated");
 }
 
-function set_update_timer()
+function set_update_timeout()
 {
-	clearInterval(timer);
-	timer = window.setTimeout(update, 300);
+	if(updating == false)
+	{
+		updating = true;
+		timer = window.setInterval(update, 300);
+	}
+
+	// after 1 second of no keypresses, disable the updating interval
+	window.clearTimeout(timer_sleep);
+	timer_sleep = window.setTimeout(function() { window.clearTimeout(timer); updating=false; }, 1000);
 }
 
 /******************************************************/
@@ -177,17 +184,17 @@ function set_update_timer()
 
 var foodlist;
 var textarea = document.querySelector("textarea");
-var timer = set_update_timer();
+var updating = false;
+var timer = 0;
+var timer_sleep = 0;
 
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
 // list = [1, 62, 103];
-set_labels([]);
+// set_labels([]);
 
-set_update_timer();
-// textarea.addEventListener("keyup", update);
-textarea.addEventListener("keyup", set_update_timer);
-// var timer = window.setInterval(function() { update_labels(); update_total(); }, 500);
+// window.setTimeout(function() { update(); updating=false; }, 100);
+// timer = window.setInterval(update, 300);
 
-
-// alert(foodlist);
+textarea.addEventListener("keyup", set_update_timeout);
+set_update_timeout();
