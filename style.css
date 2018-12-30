@@ -15,7 +15,6 @@ a
 
 textarea
 {
-	/*border: 2px solid #999;*/
 	border-radius: 0;
 	border: 0;
 	margin: 0;
@@ -39,12 +38,13 @@ textarea, #labels
 #header
 {
 	min-height: 10vh;
-	background: #ddd;
+	background: #8fc17c;
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	vertical-align: middle;
-	border-bottom: 2px solid #ccc;
+	border-top: 1px solid #8aad7c;
+	border-bottom: 2px solid #8aad7c;
 }
 
 #headercontent
@@ -80,6 +80,7 @@ textarea, #labels
 {
 	text-align: center;
 	vertical-align: middle;
+	margin: 40px;
 }
 
 #labeltext
@@ -87,7 +88,7 @@ textarea, #labels
 	margin: auto;
 	display: grid;
 	/*grid-gap: 5px;*/
-	background: #bbb;
+	background: #95a98d;
 	grid-template-columns: 100px 1fr;
 
 	font-family: inconsolata;
@@ -100,6 +101,7 @@ textarea, #labels
 	display: flex;
 	flex-direction: column;
 	text-align: right;
+	color: #289300;
 	/*margin-top: 3px;*/
 	margin: 2px;
 	margin-right: 1px;
