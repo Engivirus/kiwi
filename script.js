@@ -1,9 +1,4 @@
 
-
-var foodlist;
-var textarea = document.querySelector("textarea");
-
-
 function fetch_json(url)
 {
 	fetch(url)
@@ -162,20 +157,37 @@ function parse_amount(somestring)
 		return parseInt(somestring.replace("g",""));
 }
 
+function update()
+{
+	update_labels();
+	update_total();
+	// window.clearInterval(timer);
+	console.log("Values updated");
+}
+
+function set_update_timer()
+{
+	clearInterval(timer);
+	timer = window.setTimeout(update, 300);
+}
+
 /******************************************************/
 
 // dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
 
+var foodlist;
+var textarea = document.querySelector("textarea");
+var timer = set_update_timer();
 
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
 // list = [1, 62, 103];
 set_labels([]);
 
-
-textarea.addEventListener("keyup", function() { update_labels(); update_total(); });
-// var intervalID = window.setInterval(function() { update_labels(); update_total(); }, 1000);
-
+set_update_timer();
+// textarea.addEventListener("keyup", update);
+textarea.addEventListener("keyup", set_update_timer);
+// var timer = window.setInterval(function() { update_labels(); update_total(); }, 500);
 
 
 // alert(foodlist);
