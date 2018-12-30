@@ -61,9 +61,9 @@ function create_label_array(entries)
 		{
 			calories_array.push(-1); // empty line
 		}
-		else if(foodlist.hasOwnProperty(foodname))
+		else if(get_food_match(foodname, foodlist) != "") // best key match in dictionary
 		{
-			var amount = foodlist[foodname] / 100 * entries[i][1];
+			var amount = foodlist[get_food_match(foodname, foodlist)] / 100 * entries[i][1];
 			calories_array.push(Math.round(amount));
 		}
 		else
@@ -132,6 +132,26 @@ function update_total()
 
 	var totalcal_div = document.querySelector("#totalcal h2");
 	totalcal_div.innerText = total+" kcal";
+}
+
+function get_food_match(foodname, dict)
+{
+	if(dict.hasOwnProperty(foodname))
+		return foodname;
+
+	if(foodname.endsWith('s'))
+	{
+		var singular = foodname.slice(0,-1);
+		if(dict.hasOwnProperty(singular))
+			return singular;
+	}
+
+	for(var key in dict)
+		if(dict.hasOwnProperty(key))
+			if(key.startsWith(foodname))
+				return key;
+	
+	return "";
 }
 
 function parse_amount(somestring)
