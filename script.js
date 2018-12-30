@@ -17,32 +17,65 @@ function fetch_json(url)
 		.catch(error => console.error(error))
 }
 
+
 // returns an array of tuples [name,grams]
 function get_text_entries(item)
 {
 	var entries = [];
 
 	var lines = item.value.split('\n');
+	console.log(lines);
 	for(var i=0; i<lines.length; i++)
 	{
-		if(lines[i].includes(" "))
+		if(lines[i].includes(' '))
 		{
-		var pair = lines[i].split(' ');
-		var amount = parse_amount(pair[0]);
-		var name = pair[1];
-		
-		var new_pair = [name, amount];
+			var pair = lines[i].split(' ');
+			var amount = parse_amount(pair[0]);
+			var name = pair[1];
+			
+			var new_pair = [name, amount];
 
-		entries.push(new_pair);
+			entries.push(new_pair);
 		}
 		else
 		{
-		entries.push(["",0]);
+			var new_pair = ["empty", 0];
+			entries.push(new_pair);
 		}
 	}
 
+	console.log(lines);
 	return entries;
 }
+
+
+function create_label_array(entries)
+{
+	var calories_array = [];
+	
+	for(var i=0; i<entries.length; i++)
+	{
+		var foodname = entries[i][0];
+		console.log(foodname);
+		if(foodname === "")
+		{
+			calories_array.push(-1);
+		}
+		else if(foodlist.hasOwnProperty(foodname))
+		{
+			var amount = foodlist[foodname] / 100 * entries[i][1];
+			calories_array.push(amount);
+		}
+		else
+		{
+			calories_array.push(0);
+		}
+	}
+
+	console.log(calories_array);
+	return calories_array;
+}
+
 
 function set_labels(array)
 {
@@ -62,49 +95,36 @@ function set_labels(array)
 		var new_div = document.createElement("div");
 		var new_content = document.createTextNode(array[i]);
 		
-		/*if(array[i] >= 0)
-		{
+		if(array[i] < 0)
+			new_content = document.createTextNode("");
+
 		new_div.appendChild(new_content);
-		}
-		*/
+		
 		// console.log(new_div);
 
 		labels_div.appendChild(new_div);
 	}
 }
 
-function create_label_array(entries)
-{
-	var calories_array = [];
-	
-	for(var i=0; i<entries.length; i++)
-	{
-		var foodname = entries[i][0];
-		if(foodname == "")
-			calories_array.push(-1);
-		else if(foodlist.hasOwnProperty(foodname))
-		{
-			var amount = foodlist[foodname] / 100 * entries[i][1];
-			calories_array.push(amount);
-		}
-		else
-		{
-			calories_array.push(0);
-		}
-	}
 
-	return calories_array;
+function update_labels()
+{
+	var entries = get_text_entries(textarea);
+	var array = create_label_array(entries);
+	set_labels(array);
 }
 
 function parse_amount(somestring)
 {
-	if(somestring.includes("kg")) {
-	   return 1000 * parseInt(somestring.replace("kg",""));}
-	else {
-		return parseInt(somestring.replace("g","")); }
+	if(somestring.includes("kg"))
+	   return 1000 * parseInt(somestring.replace("kg",""));
+	else
+		return parseInt(somestring.replace("g",""));
 }
 
-dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
+/******************************************************/
+
+// dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
 
 
 fetch_json("https://engivirus.github.io/kiwi/food.json");
@@ -113,11 +133,7 @@ fetch_json("https://engivirus.github.io/kiwi/food.json");
 set_labels([]);
 
 
-textarea.addEventListener("keyup", function() {
-	var entries = get_text_entries(textarea);
-	var array = create_label_array(entries);
-	set_labels(array);
-});
+textarea.addEventListener("keyup", function() { update_labels() });
 
 
 
