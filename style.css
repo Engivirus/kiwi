@@ -41,9 +41,27 @@ textarea, #labels
 	min-height: 10vh;
 	background: #ddd;
 	display: flex;
+	justify-content: center;
 	align-content: center;
 	vertical-align: middle;
 	border-bottom: 2px solid #ccc;
+}
+
+#headercontent
+{
+	display: flex;
+	flex-direction: row;
+	/*justify-content: center;*/
+	/*align-content: center;*/
+	margin: auto;
+}
+
+#header img
+{
+	max-height: 5vh;
+	margin: auto;
+	margin-right: 30px;
+	opacity: 0.9;
 }
 
 #headertext
