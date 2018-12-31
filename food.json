@@ -4,6 +4,7 @@
 	"bread": 252,
 	"rice": 130,
 	"tomato": 18,
+	"tomatoe": 18,
 	"mandarin": 53,
 	"salmon": 244,
 	"artichoke": 71,
@@ -16,9 +17,10 @@
 	"lentil": 116,
 	"chickpea": 164,
 	"pasta": 149,
+	"spaghetti": 149,
 	"banana": 89,
 	"apple": 52,
-	"sundried": 213,
+	"sundried tomato": 213,
 	"bean": 124,
 	"mixed nut": 615,
 	"apricot": 241,
@@ -32,7 +34,7 @@
 	"egg": 155,
 	"tuna": 198,
 	"mackerel": 156,
-	
-	"orange": 0,
-	"gnocchi": 0
+	"gnocchi": 133,
+	"pandoro": 410,
+	"orange": 47
 }
