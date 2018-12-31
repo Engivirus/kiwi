@@ -38,7 +38,8 @@ textarea, #labels
 #header
 {
 	min-height: 10vh;
-	background: #8fc17c;
+	background: #4E850D;
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-content: center;
