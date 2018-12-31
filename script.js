@@ -199,17 +199,20 @@ function set_update_timeout()
 	timer_sleep = window.setTimeout(function() { window.clearTimeout(timer); updating=false; }, 1000);
 }
 
+
+/******************************************************/
+/*                        Main                        */
 /******************************************************/
 
-// dummy_obj = JSON.parse('{"one": 1, "two": 2, "three": 3}');
 
-var foodlist;
 var textarea = document.querySelector("textarea");
 var updating = false;
 var timer = 0;
 var timer_sleep = 0;
-
+var foodlist;
 fetch_json("https://engivirus.github.io/kiwi/food.json");
+
 
 textarea.addEventListener("keyup", set_update_timeout);
 set_update_timeout();
+

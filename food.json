@@ -31,5 +31,8 @@
 	"pizza": 227,
 	"egg": 155,
 	"tuna": 198,
-	"mackerel": 156
+	"mackerel": 156,
+	
+	"orange": 0,
+	"gnocchi": 0
 }
