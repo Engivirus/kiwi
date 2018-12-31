@@ -24,8 +24,9 @@ textarea
 	width: 98.1%;
 	font-family: inherit;
 	font-size: inherit;
-	line-height: 1.5rem;
 	resize: vertical;
+	font-size: 1.3rem;
+	line-height: 1.5rem;
 }
 
 textarea, #labels
@@ -37,15 +38,14 @@ textarea, #labels
 
 #header
 {
-	min-height: 10vh;
-	background: #4E850D;
-	color: white;
+	min-height: 13vh;
+	border-top: 1px solid #4b9d23;
+	background: #5faa33;
+	border-bottom: 2px solid #4b9d23;
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	vertical-align: middle;
-	border-top: 1px solid #8aad7c;
-	border-bottom: 2px solid #8aad7c;
 }
 
 #headercontent
@@ -67,7 +67,8 @@ textarea, #labels
 
 #headertext
 {
-	font-size: 2rem;
+	/*color: white;*/
+	font-size: 3rem;
 	margin: auto;
 }
 
@@ -82,7 +83,8 @@ textarea, #labels
 	color: #289300;
 	text-align: center;
 	vertical-align: middle;
-	margin: 40px;
+	margin: 5vh;
+	font-size: 1.3rem;
 }
 
 #labeltext
@@ -90,11 +92,11 @@ textarea, #labels
 	margin: auto;
 	display: grid;
 	/*grid-gap: 5px;*/
-	background: #95a98d;
+	background: #4b9d23;
 	grid-template-columns: 100px 1fr;
 
 	font-family: inconsolata;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	line-height: 1.5rem;
 }
 
@@ -112,7 +114,8 @@ textarea, #labels
 
 .calories
 {
-	height: 1.5rem;
+	font-size: 1.5rem;
+	height: 2rem;
 }
 
 #textcontainer

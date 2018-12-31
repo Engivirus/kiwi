@@ -24,7 +24,8 @@ function get_text_entries(item)
 	{
 		if(lines[i].includes(' '))
 		{
-			var pair = lines[i].split(' ');
+			// var pair = lines[i].split(' ');
+			var pair = split_amount_and_foodname(lines[i]);
 			var amount = parse_amount(pair[0]);
 			var name = pair[1];
 			
@@ -147,6 +148,25 @@ function get_food_match(foodname, dict)
 				return key;
 	
 	return "";
+}
+
+// split "30g mixed nuts" into ["30g","mixed nuts"]
+function split_amount_and_foodname(line)
+{
+	var amount = "";
+
+	for(var i=0; i<line.length; i++)
+	{
+		if(line[i]==' ' && amount=="")
+		{
+			amount = line.slice(0,i); // from start of line to here
+		}
+		else if(amount != "")
+		{
+			var foodname = line.slice(i,line.length); // from here to the end of line
+			return [amount, foodname];
+		}
+	}
 }
 
 function parse_amount(somestring)
