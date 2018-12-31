@@ -190,11 +190,5 @@ var timer_sleep = 0;
 
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
-// list = [1, 62, 103];
-// set_labels([]);
-
-// window.setTimeout(function() { update(); updating=false; }, 100);
-// timer = window.setInterval(update, 300);
-
 textarea.addEventListener("keyup", set_update_timeout);
 set_update_timeout();
