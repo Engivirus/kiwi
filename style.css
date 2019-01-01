@@ -94,6 +94,7 @@ textarea, #labels
 	/*grid-gap: 5px;*/
 	background: #4b9d23;
 	grid-template-columns: 100px 1fr;
+	margin: 0px 10px;
 
 	font-family: inconsolata;
 	font-size: 1.3rem;
