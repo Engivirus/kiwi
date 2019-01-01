@@ -184,6 +184,9 @@ function update()
 	update_total();
 	// window.clearInterval(timer);
 	console.log("Values updated");
+
+	// save all textarea items to local storage
+	localStorage.setItem('textbox', JSON.stringify(textarea.value));
 }
 
 function set_update_timeout()
@@ -213,6 +216,14 @@ var foodlist;
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
 
+// load most recent items into textbox
+var savedtext = localStorage.getItem('textbox');
+if(savedtext !== null)
+	textarea.value = JSON.parse(savedtext);
+
+
+// stop updating the items after 1 second of not typing
 textarea.addEventListener("keyup", set_update_timeout);
 set_update_timeout();
+
 
