@@ -94,6 +94,7 @@ textarea, #labels
 	background: #4b9d23;
 	grid-template-columns: 100px 1fr;
 	margin: 0px 10px;
+	min-height: 24rem; /* 1.5rem * 16 lines */
 
 	font-family: inconsolata;
 	font-size: 1.3rem;
