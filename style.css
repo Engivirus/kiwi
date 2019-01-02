@@ -19,8 +19,6 @@ textarea
 	border: 0;
 	margin: 0;
 	padding: 0;
-	-webkit-margin: 0;
-	-webkit-padding: 0;
 	padding-left: 12px;
 	height: 100%;
 	width: 98.1%;
@@ -55,11 +53,13 @@ textarea, #labels
 	display: flex;
 	flex-direction: row;
 	margin: auto;
+	height: 3rem;
 }
 
 #header img
 {
-	max-height: 5vh;
+	/*max-height: 5vh;*/
+	height: 120%;
 	margin: auto;
 	margin-right: 30px;
 	opacity: 0.9;
