@@ -39,9 +39,9 @@ textarea, #labels
 #header
 {
 	min-height: 13vh;
-	border-top: 1px solid #4b9d23;
-	background: #5faa33;
-	border-bottom: 2px solid #4b9d23;
+	border-top: 1px solid #60802f;
+	background: #61812e;
+	border-bottom: 2px solid #60802f;
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -67,7 +67,7 @@ textarea, #labels
 
 #headertext
 {
-	/*color: white;*/
+	color: white;
 	font-size: 3rem;
 	margin: auto;
 }
@@ -87,7 +87,7 @@ textarea, #labels
 
 #totalcal
 {
-	color: #289300;
+	color: #61812e;
 	text-align: center;
 	vertical-align: middle;
 	/*margin: 5vh;*/
@@ -99,7 +99,7 @@ textarea, #labels
 {
 	margin: auto;
 	display: grid;
-	background: #4b9d23;
+	background: #61812e;
 	grid-template-columns: 100px 1fr;
 	margin: 0px 10px;
 	min-height: 24rem; /* 1.5rem * 16 lines */
@@ -114,7 +114,7 @@ textarea, #labels
 	display: flex;
 	flex-direction: column;
 	text-align: right;
-	color: #289300;
+	color: #61812e;
 	margin: 2px;
 	margin-right: 1px;
 	padding: 0 1rem;
