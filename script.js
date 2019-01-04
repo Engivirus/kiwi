@@ -144,7 +144,7 @@ function update_labels_singlestep()
 			labels.push("_");
 
 		// manual calorie entry
-		else if(words.length===1 || words[0].includes("cal")) // 100kcal, 100cal, or 100c
+		else if(words.length===1 && has_digits(words[0])) // 100kcal, 100cal, or 100c
 		{
 			var firstword = remove_nondigits(words[0]);
 			var calories = parseFloat(firstword);
@@ -159,7 +159,7 @@ function update_labels_singlestep()
 
 		// (at least two words are guaranteed)
 		// weighted food (possibly with calories at the end)
-		else if(words[0].endsWith("g") || words[0].endsWith("kg"))
+		else/* if(words[0].endsWith("g") || words[0].endsWith("kg"))*/
 		{
 			var amount = parse_amount(words[0]);
 			// console.log(words[0]+" -> "+amount);
@@ -207,10 +207,11 @@ function update_labels_singlestep()
 				foodname = words.splice(0,1).join(' ');
 			*/
 		}
-
+		/*
 		// anything else, idk
 		else
 			labels.push("_");
+		*/
 	}
 
 	set_labels(labels);
