@@ -144,7 +144,7 @@ function update_labels_singlestep()
 			labels.push("_");
 
 		// manual calorie entry
-		else if(words.length===1 && has_digits(words[0])) // 100kcal, 100cal, or 100c
+		else if(words.length===1 && has_digits(words[0]) || words[0].endsWith("cal")) // 100kcal, 100cal, or 100c
 		{
 			var firstword = remove_nondigits(words[0]);
 			var calories = parseFloat(firstword);
@@ -159,9 +159,8 @@ function update_labels_singlestep()
 
 		// (at least two words are guaranteed)
 		// weighted food (possibly with calories at the end)
-		else/* if(words[0].endsWith("g") || words[0].endsWith("kg"))*/
+		else
 		{
-			var amount = parse_amount(words[0]);
 			// console.log(words[0]+" -> "+amount);
 
 			// if the calories are specified, use them instead of looking up the food name
@@ -169,6 +168,7 @@ function update_labels_singlestep()
 			if(has_digits(lastword)
 			&&(lastword.endsWith("cal") || lastword.endsWith("c")))
 			{
+				var amount = parse_amount(words[0]);
 				var cal100 = parseFloat(remove_nondigits(lastword));
 				var calories = cal100 / 100 * amount;
 
@@ -179,6 +179,8 @@ function update_labels_singlestep()
 			// no calories are indicated, so look up the food name
 			else
 			{
+				var amount = parse_amount(words[0]);
+
 				words.splice(0,1);
 				var foodname = words.join(' ');
 				var foodkey = get_food_match(foodname, foodlist);
