@@ -164,4 +164,15 @@ textarea, #labels
 #notes ul li
 {
 	padding-bottom: 15px;
+	line-height: 1.3rem;
+}
+
+#notes .example
+{
+	display: inline;
+	padding: 3px 5px;
+	background: #ccc;
+	color: black;
+	/*border-radius: 2px;*/
+	border: 1px solid #aaa;
 }
