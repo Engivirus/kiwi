@@ -4,7 +4,7 @@ body
 	font-size: 1rem;
 	margin: 0;
 	padding: 0;
-	background: #eee;
+	background: #e0e0e0;
 }
 
 a
@@ -74,8 +74,15 @@ textarea, #labels
 
 #maincontainer
 {
+	background: #eee;
+	border-bottom: 2px solid #ddd;
+}
+
+#boxcontainer
+{
 	max-width: 750px;
 	margin: auto;
+	padding-bottom: 25vh;
 }
 
 #totalcal
@@ -83,7 +90,8 @@ textarea, #labels
 	color: #289300;
 	text-align: center;
 	vertical-align: middle;
-	margin: 5vh;
+	/*margin: 5vh;*/
+	padding: 2vh 10px;
 	font-size: 1.3rem;
 }
 
@@ -124,22 +132,33 @@ textarea, #labels
 	margin-left: 1px;
 }
 
+#bottom
+{
+	width: 100%;
+	background: #e0e0e0;
+	display: flex;
+	align-content: flex-start;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+
 #notescontainer
 {
 	display: flex;
 	align-content: flex-end;
-	justify-content: flex-start;
-	margin: 12vh 10px;
-	margin-left: 110px;
+	justify-content: center;
+	padding-right: 10px;
+	/*max-width: 860px;*/
+	margin: auto;
 }
 
 #notes
 {
-	/*margin: 5vh 10px 0px 100px;*/
+	margin: 30px 10px 0px 10px;
 	color: #777;
 	padding: 10px;
-	background: #e0e0e0;
-	border: 2px solid #ccc;
+	/*background: #e0e0e0;*/
+	/*border: 2px solid #ccc;*/
 }
 
 #notes ul li
