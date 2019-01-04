@@ -123,3 +123,26 @@ textarea, #labels
 	margin: 2px;
 	margin-left: 1px;
 }
+
+#notescontainer
+{
+	display: flex;
+	align-content: flex-end;
+	justify-content: flex-start;
+	margin: 5vh 10px;
+	margin-left: 110px;
+}
+
+#notes
+{
+	/*margin: 5vh 10px 0px 100px;*/
+	color: #777;
+	padding: 10px;
+	background: #e0e0e0;
+	border: 2px solid #ccc;
+}
+
+#notes ul li
+{
+	padding-bottom: 15px;
+}

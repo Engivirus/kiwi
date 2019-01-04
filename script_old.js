@@ -113,16 +113,6 @@ function update_labels()
 }
 
 /*
-	120		30g chocolate
-	150		150kcal
-	  _		dinner
-	 34		13g cake 200kcal
-
-	- comment entry
-	- normal entry lookup
-	- manual kcal insert
-	- weighted manual entry
-*/
 function update_labels_singlestep()
 {
 	// read lines
@@ -130,95 +120,22 @@ function update_labels_singlestep()
 	// make label divs
 	// set total
 
-	var total = 0;
-	var labels = [];
+	total = 0
 
-	var lines = textarea.value.split('\n');
-	for(var i=0; i<lines.length; i++)
-	{
-		var words = lines[i].trim().split(' ');
-		// console.log(words);
+	for line in lines:
+		if ' ' in line:
+			amount, foodname = parse_line(line)
+			cal100 = dict[foodname]
+			calories = amount/100*cal100
+			total += calories
+			array.append(str(calories))
 
-		// empty line, or first word without digits, or line without digits
-		if(words.length < 1 || !has_digits(words[0]) || !has_digits(lines[i]))
-			labels.push("_");
+	for string in array:
+		make_new_div(string)
 
-		// manual calorie entry
-		else if(words.length===1 || words[0].includes("cal")) // 100kcal, 100cal, or 100c
-		{
-			var firstword = remove_nondigits(words[0]);
-			var calories = parseFloat(firstword);
-
-			// if the calories were negative (-300kcal)
-			if(words[0].includes('-'))
-				calories = -calories;
-
-			total += calories;
-			labels.push(Math.round(calories).toString());
-		}
-
-		// (at least two words are guaranteed)
-		// weighted food (possibly with calories at the end)
-		else if(words[0].endsWith("g") || words[0].endsWith("kg"))
-		{
-			var amount = parse_amount(words[0]);
-			// console.log(words[0]+" -> "+amount);
-
-			// if the calories are specified, use them instead of looking up the food name
-			var lastword = words[words.length-1];
-			if(has_digits(lastword)
-			&&(lastword.endsWith("cal") || lastword.endsWith("c")))
-			{
-				var cal100 = parseFloat(remove_nondigits(lastword));
-				var calories = cal100 / 100 * amount;
-
-				total += calories;
-				labels.push(Math.round(calories).toString());
-			}
-
-			// no calories are indicated, so look up the food name
-			else
-			{
-				words.splice(0,1);
-				var foodname = words.join(' ');
-				var foodkey = get_food_match(foodname, foodlist);
-
-				// if no matching food was found, show a "?"
-				if(foodkey=="")
-				{
-					// console.log("No match found: "+foodname);
-					labels.push("?");
-				}
-				else
-				{
-					var calories = foodlist[foodkey] / 100 * amount;
-
-					total += calories;
-					labels.push(Math.round(calories).toString());
-				}
-			}
-
-			/*
-			var foodname = "";
-			// remove first 2 words if they're formatted like "30 g"
-			if(word[1].startsWith("g") || word[1].startsWith("kg"))
-				foodname = words.splice(0,2).join(' ');
-			else // only remove first word if it's like "30g"
-				foodname = words.splice(0,1).join(' ');
-			*/
-		}
-
-		// anything else, idk
-		else
-			labels.push("_");
-	}
-
-	set_labels(labels);
-
-	var totalcal_div = document.querySelector("#totalcal h2");
-	totalcal_div.innerText = Math.round(total).toString()+" kcal";
+	total.innerHtml = total
 }
-
+*/
 
 function update_total()
 {
@@ -235,19 +152,6 @@ function update_total()
 	var totalcal_div = document.querySelector("#totalcal h2");
 	totalcal_div.innerText = total+" kcal";
 }
-
-
-function remove_nondigits(string)
-{
-	return string.replace(/\D/g,'');
-}
-
-
-function has_digits(string)
-{
-	return /\d/.test(string);
-}
-
 
 function get_food_match(foodname, dict)
 {
@@ -310,22 +214,12 @@ function update()
 	localStorage.setItem('textbox', JSON.stringify(textarea.value));
 }
 
-function update_new()
-{
-	update_labels_singlestep();
-	// console.log("*********************************");
-	console.log("Values updated");
-
-	// save all textarea items to local storage
-	localStorage.setItem('textbox', JSON.stringify(textarea.value));
-}
-
 function set_update_timeout()
 {
 	if(updating == false)
 	{
 		updating = true;
-		timer = window.setInterval(update_new, 300);
+		timer = window.setInterval(update, 300);
 	}
 
 	// after 1 second of no keypresses, disable the updating interval
