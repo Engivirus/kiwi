@@ -11,8 +11,8 @@ with open('food.txt', 'r') as textfile:
 			if len(items) < 2:
 				print('Error. Not enough items in line: '+line)
 			else:
-				for item in items[:-1]:
-					json_output += '\t"{}": {},\n'.format(item.strip(), items[-1].strip())
+				for item in items[1:]:
+					json_output += '\t"{}": {},\n'.format(item.strip(), items[0].strip())
 					json_entry_counter += 1
 
 json_output += "}"

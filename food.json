@@ -29,8 +29,10 @@
 	"banana": 89,
 	"apple": 52,
 	"mela": 52,
+	"mele": 52,
 	"sundried tomato": 21,
 	"pomodori soleggiati": 21,
+	"pomodori secchi": 21,
 	"bean": 124,
 	"fagioli": 124,
 	"mixed nut": 615,
@@ -69,5 +71,16 @@
 	"cauliflower": 23,
 	"cavolfior": 23,
 	"cavol": 23,
-	"ciambella": 444
+	"ciambella": 444,
+	"cheese": 400,
+	"formaggio": 400,
+	"milk": 61,
+	"latte": 61,
+	"wine": 85,
+	"vino": 85,
+	"beer": 43,
+	"birra": 43,
+	"carne": 271,
+	"polenta": 145,
+	"cranberry juice": 46
 }
