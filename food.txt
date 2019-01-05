@@ -1,0 +1,39 @@
+olive, 145
+broccoli, 35
+bread, pane, 252
+rice, riso, 130
+tomato, tomatoe, pomodoro, 18
+mandarin, 53
+salmon, 244
+artichoke, carciof, 71
+spaetzle, 153
+tofu, 183
+chocolate, cioccolat, 598
+potato, potatoe, patat, 87
+spinac, 23
+lentil, lenticchie, 116
+chickpea, ceci, 164
+pasta, 149
+spaghetti, 149
+banana, 89
+apple, mela, 52
+sundried tomato, pomodori soleggiati, 21
+bean, fagioli, 124
+mixed nut, noci, 615
+apricot, albicocch, 241
+almond, mandorle, 579
+string bean, fagiolini, 35
+pear, pere, pera, 57
+pea, piselli, 78
+couscous, cous cous, 112
+soymilk, latte di soia, 54
+pizza, 227
+egg, uova, uovo, 155
+tuna, tonno, 198
+mackerel, sgombr, 156
+gnocchi, 133
+pandoro, 410
+orange, arancia, arance, 47
+cod, merluzz, pesce, 105
+cauliflower, cavolfior, cavol, 23
+ciambella, 444

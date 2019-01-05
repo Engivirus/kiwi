@@ -265,9 +265,9 @@ function get_food_match(foodname, dict)
 	}
 
 	for(var key in dict)
-		if(dict.hasOwnProperty(key))
-			if(key.startsWith(foodname))
-				return key;
+		if(dict.hasOwnProperty(key)
+		&& key.startsWith(foodname))
+			return key;
 	
 	return "";
 }

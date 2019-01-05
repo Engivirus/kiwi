@@ -31,7 +31,7 @@ textarea
 
 textarea, #labels
 {
-	background-image: url("textbg.png");
+	background-image: url("img/textbg.png");
 	image-rendering: pixelated;
 	background-size: 100% 3rem;
 }
@@ -67,7 +67,7 @@ textarea, #labels
 
 #headertext
 {
-	color: white;
+	color: black;
 	font-size: 3rem;
 	margin: auto;
 }
