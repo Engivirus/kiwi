@@ -36,8 +36,8 @@ class Panel
 				this.storage.push(parse_line(lines[i]));
 			else if(lines[i] !== this.storage[i][0])
 				this.storage[i] = parse_line(lines[i]);
-			else
-				console.log("Line has not changed");
+			// else
+				// console.log("Line has not changed");
 		}
 
 		// forget any extra lines in storage
