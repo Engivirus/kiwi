@@ -285,29 +285,6 @@ function update_panel()
 	localStorage.setItem('textbox', JSON.stringify(textarea.value));
 }
 
-function update_new()
-{
-	// update_labels_singlestep();
-	// console.log("*********************************");
-	console.log("Values updated");
-
-	// save all textarea items to local storage
-	localStorage.setItem('textbox', JSON.stringify(textarea.value));
-}
-
-function set_update_timeout()
-{
-	if(updating == false)
-	{
-		updating = true;
-		timer = window.setInterval(update_new, 300);
-	}
-
-	// after 1 second of no keypresses, disable the updating interval
-	window.clearTimeout(timer_sleep);
-	timer_sleep = window.setTimeout(function() { window.clearTimeout(timer); updating=false; }, 1000);
-}
-
 
 /******************************************************/
 /*                        Main                        */
@@ -315,15 +292,9 @@ function set_update_timeout()
 
 
 var textarea = document.querySelector("textarea");
-// var updating = false;
-// var timer = 0;
-// var timer_sleep = 0;
 var foodlist;
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
-// only used for txt download
-// var box_total = 0;
-// var box_labels = [];
 
 // load most recent items into textbox
 var savedtext = localStorage.getItem('textbox');
@@ -334,8 +305,3 @@ if(savedtext !== null)
 var panel = new Panel("textarea", "#labels", "#totalcal h2");
 textarea.addEventListener("keyup", update_panel);
 window.setTimeout(update_panel, 100);
-
-
-// stop updating the items after 1 second of not typing
-// textarea.addEventListener("keyup", set_update_timeout);
-// set_update_timeout();
