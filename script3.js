@@ -292,7 +292,7 @@ function update_panel()
 
 
 var textarea = document.querySelector("textarea");
-var foodlist = {};
+var foodlist;
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
 
