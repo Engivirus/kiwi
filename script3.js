@@ -50,7 +50,7 @@ class Panel
 		for(var i=0; i<this.storage.length; i++)
 			temptotal += this.storage[i][1];
 		this.total = temptotal;
-		this.totaldiv.innerText = Math.round(this.total).toString();
+		this.totaldiv.innerText = Math.round(this.total).toString()+" kcal";
 	}
 
 	WriteLabels()
@@ -130,16 +130,13 @@ function parse_line(line)
 {
 	var label_number = 0;
 	var label_string = "";
-
 	
 	var words = line.trim().split(' ');
 	// console.log(words);
 
 	// empty line, or first word without digits, or line without digits
 	if(words.length < 1 || !has_digits(words[0]) || !has_digits(line))
-	{
 		label_string = ("_");
-	}
 
 	// manual calorie entry
 	else if(words.length===1 && has_digits(words[0]) || words[0].endsWith("cal")) // 100kcal, 100cal, or 100c
@@ -190,7 +187,6 @@ function parse_line(line)
 			else
 			{
 				var calories = foodlist[foodkey] / 100 * amount;
-
 				label_number = calories;
 			}
 		}
@@ -204,7 +200,8 @@ function parse_line(line)
 
 function remove_nondigits(string)
 {
-	return string.replace(/\D/g,'');
+	// return string.replace(/\D/g,'');
+	return string.replace(/[^\d.-]/g,'');
 }
 
 
@@ -235,12 +232,14 @@ function get_food_match(foodname, dict)
 }
 
 
+// "30g" -> 30
+// "0.2kg" -> 200
 function parse_amount(somestring)
 {
 	if(somestring.includes("kg"))
-		return 1000 * parseFloat(somestring.replace("kg",""));
+		return 1000 * parseFloat(remove_nondigits(somestring));
 	else
-		return parseInt(somestring.replace("g",""));
+		return parseFloat(remove_nondigits(somestring));
 }
 
 
@@ -292,7 +291,7 @@ function update_panel()
 
 
 var textarea = document.querySelector("textarea");
-var foodlist;
+var foodlist = {};
 fetch_json("https://engivirus.github.io/kiwi/food.json");
 
 
@@ -303,5 +302,7 @@ if(savedtext !== null)
 
 
 var panel = new Panel("textarea", "#labels", "#totalcal h2");
+// textarea.oninput = update_panel();
 textarea.addEventListener("keyup", update_panel);
+// textarea.addEventListener("change", update_panel);
 window.setTimeout(update_panel, 100);
