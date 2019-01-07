@@ -10,6 +10,7 @@ function fetch_json(url)
 		.then(function(data) {
 			console.log(data);
 			foodlist = data;
+			update_panel();
 		})
 		.catch(error => console.error(error))
 }
