@@ -77,11 +77,22 @@ class Panel
 		}
 	}
 
-	UpdatePanel()
+	UpdatePanel(food_dict)
 	{
-		this.UpdateStorage();
-		this.UpdateTotal();
-		this.WriteLabels();
+		if(typeof food_dict === "undefined")
+		{
+			console.log("Foodlist is undefined");
+		}
+		else
+		{
+			this.UpdateStorage();
+			this.UpdateTotal();
+			this.WriteLabels();
+
+			console.log("Panel updated from foodlist");
+			localStorage.setItem('textbox', JSON.stringify(textarea.value));
+		}
+		
 	}
 
 	ExportTxt()
@@ -278,11 +289,11 @@ function get_date_today()
 
 function update_panel()
 {
-	panel.UpdatePanel();
-	console.log("Values updated");
+	panel.UpdatePanel(foodlist);
+	// console.log("Values updated");
 
 	// save all textarea items to local storage
-	localStorage.setItem('textbox', JSON.stringify(textarea.value));
+	// localStorage.setItem('textbox', JSON.stringify(textarea.value));
 }
 
 

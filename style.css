@@ -142,6 +142,7 @@ textarea, #labels
 #controls input
 {
 	margin: 15px;
+	margin-bottom: 5px;
 	font-size: 1rem;
 }
 
@@ -157,9 +158,9 @@ textarea, #labels
 
 #notes
 {
-	margin: 10px;
+	margin: 0px 10px 10px 10px;
 	color: #777;
-	padding: 10px;
+	/*padding: 10px;*/
 	/*background: #e0e0e0;*/
 	/*border: 2px solid #ccc;*/
 }
