@@ -91,8 +91,24 @@ textarea, #labels
 	text-align: center;
 	vertical-align: middle;
 	/*margin: 5vh;*/
-	padding: 2vh 10px;
+	padding: 3vh 10px 0px 10px;
 	font-size: 1.3rem;
+}
+
+#totalcal h2
+{
+	margin: 10px;
+}
+
+#labelheader
+{
+	margin-left: 10px;
+	min-height: 3vh;
+	width: 5.1rem;
+	text-align: right;
+	font-family: inconsolata;
+	font-size: 1.3rem;
+	color: #61812e;
 }
 
 #labeltext
@@ -100,7 +116,7 @@ textarea, #labels
 	margin: auto;
 	display: grid;
 	background: #61812e;
-	grid-template-columns: 100px 1fr;
+	grid-template-columns: 6rem 1fr;
 	margin: 0px 10px;
 	min-height: 24rem; /* 1.5rem * 16 lines */
 

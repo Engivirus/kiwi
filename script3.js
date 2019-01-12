@@ -118,6 +118,19 @@ class Panel
 		download(text, filename, 'text/plain');
 	}
 
+	Clear()
+	{
+		this.storage = [];
+		this.total = 0;
+		this.textarea.value = "";
+
+		this.WriteLabels();
+		this.UpdateTotal();
+		localStorage.removeItem('textbox');
+
+		console.log("Panel cleared");
+	}
+
 	Log()
 	{
 		console.log(this.textarea);
@@ -271,6 +284,14 @@ function download(content, fileName, contentType)
 function download_txt()
 {
 	panel.ExportTxt();
+}
+
+
+function clear_textarea()
+{
+	if(panel.textarea.value !== ""
+	&& window.confirm("Delete all entries?")) 
+		panel.Clear();
 }
 
 
