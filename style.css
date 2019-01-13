@@ -174,16 +174,13 @@ textarea, #labels
 
 #notes
 {
-	margin: 0px 10px 10px 10px;
+	margin: 5px 10px 10px 10px;
 	color: #777;
-	/*padding: 10px;*/
-	/*background: #e0e0e0;*/
-	/*border: 2px solid #ccc;*/
 }
 
 #notes ul li
 {
-	padding-bottom: 15px;
+	margin-bottom: 15px;
 	line-height: 1.3rem;
 }
 
@@ -193,6 +190,6 @@ textarea, #labels
 	padding: 3px 5px;
 	background: #ccc;
 	color: black;
-	/*border-radius: 2px;*/
+	border-radius: 2px;
 	border: 1px solid #aaa;
 }
